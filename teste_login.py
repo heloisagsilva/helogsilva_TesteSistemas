@@ -8,15 +8,15 @@ driver = webdriver.Chrome()
 #Acessa  a pagina de cadastro usando o caminho absoluto com o protocolo file://
 #Certifique-se que o caminho esta apontando para o arquivo HTML especifico
 
-driver.get("file:///C:/Users/heloisa_silva150/Documents/Testes_Sistemas/login.html")
+driver.get("http://localhost:8080/helogsilva_TesteSistemas/login.html")
 
 #Preencha o campo usuario 
-nome_input = driver.find_element(By.ID,"usuario")
-nome_input.send_keys("admin")
+# nome_input = driver.find_element(By.ID,"usuario")
+# nome_input.send_keys("admin")
 
 #Preencha o senha
-descricao_input = driver.find_element(By.ID, "senha")
-descricao_input.send_keys("123456")
+# descricao_input = driver.find_element(By.ID, "senha")
+# descricao_input.send_keys("123456")
 
 #Clicar no botão cadastrar 
 #botao_login = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
@@ -24,7 +24,17 @@ descricao_input.send_keys("123456")
 
 #Aguarda um momento para visualizar o resultado 
 #(em uma aplicação real, você verificaria a resposta)
-#time.sleep(8)
+
+#Preencha o campo usuario 
+driver.find_element(By.ID,"usuario").send_keys("admin")
+
+#Preencha o campo usuario 
+driver.find_element(By.ID,"senha").send_keys("123456")
+
+#Preencha o campo usuario 
+# driver.find_element(By.CSS_SELECTOR, "button ['type'submit']").click()
+
+time.sleep(2)
 if "Cadastro de Cliente" in driver.page_source:
     print("Login realizado com sucesso e redirecionado para a index.html!!")
 else :
